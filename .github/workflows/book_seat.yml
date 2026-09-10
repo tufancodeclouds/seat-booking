@@ -5,7 +5,15 @@ on:
     # 18:31 UTC corresponds to 12:01 AM IST (UTC+5:30) every day
     - cron: '31 18 * * *'
   workflow_dispatch:
-    # Allows manual trigger anytime from GitHub Actions tab
+    inputs:
+      targetDate:
+        description: 'Target Date (TODAY, TOMORROW, or YYYY-MM-DD - leave empty for default)'
+        required: false
+        default: ''
+      room:
+        description: 'Room Number (e.g. 115 - leave empty for default)'
+        required: false
+        default: ''
 
 jobs:
   book-seat:
@@ -15,6 +23,8 @@ jobs:
     env:
       TZ: 'Asia/Kolkata'
       SESSION_DATA: ${{ secrets.SESSION_DATA }}
+      TARGET_DATE: ${{ github.event.inputs.targetDate }}
+      TARGET_ROOM: ${{ github.event.inputs.room }}
 
     steps:
       - name: 📥 Checkout Repository

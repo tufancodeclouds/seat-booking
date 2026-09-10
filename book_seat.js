@@ -18,20 +18,27 @@ function logMessage(msg) {
 }
 
 function loadConfig() {
-  if (fs.existsSync(CONFIG_FILE)) {
-    try {
-      return JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
-    } catch (e) {
-      console.warn('⚠️ Could not parse config.json, using defaults.');
-    }
-  }
-  return {
+  let cfg = {
     targetDate: 'TODAY',
     location: 'Globsyn Crystals (HQ) - Kolkata',
     space: 'Regular Seating',
     room: '115',
     autoFallbackIfRoomFull: true
   };
+  if (fs.existsSync(CONFIG_FILE)) {
+    try {
+      cfg = { ...cfg, ...JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8')) };
+    } catch (e) {
+      console.warn('⚠️ Could not parse config.json, using defaults.');
+    }
+  }
+  if (process.env.TARGET_DATE && process.env.TARGET_DATE.trim()) {
+    cfg.targetDate = process.env.TARGET_DATE.trim();
+  }
+  if (process.env.TARGET_ROOM && process.env.TARGET_ROOM.trim()) {
+    cfg.room = process.env.TARGET_ROOM.trim();
+  }
+  return cfg;
 }
 
 function resolveTargetDateISO(input) {
