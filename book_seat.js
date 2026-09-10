@@ -73,11 +73,75 @@ function resolveTargetDateISO(input) {
   return `${yyyy}-${mm}-${dd}`;
 }
 
+async function sendTelegramNotification({ success, date, room, location, space, screenshotPath, error }) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) {
+    return;
+  }
+
+  try {
+    let caption;
+    if (success) {
+      caption = `🎉 <b>Office Seat Booking Confirmed!</b>\n\n` +
+        `🏢 <b>Location:</b> ${location}\n` +
+        `📅 <b>Date:</b> ${date}\n` +
+        `💺 <b>Space:</b> ${space}\n` +
+        `🚪 <b>Room:</b> ${room}\n` +
+        `⏰ <b>Booked At:</b> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`;
+    } else {
+      caption = `🚨 <b>Office Seat Booking Failed!</b>\n\n` +
+        `📅 <b>Target Date:</b> ${date}\n` +
+        `🏢 <b>Location:</b> ${location}\n` +
+        `❌ <b>Error:</b> ${error || 'Unknown error'}\n` +
+        `⚠️ Please check and book manually.`;
+    }
+
+    if (screenshotPath && fs.existsSync(screenshotPath)) {
+      const formData = new FormData();
+      formData.append('chat_id', chatId);
+      formData.append('caption', caption);
+      formData.append('parse_mode', 'HTML');
+      const fileBuffer = fs.readFileSync(screenshotPath);
+      const blob = new Blob([fileBuffer], { type: 'image/png' });
+      formData.append('photo', blob, 'booking_result.png');
+
+      const res = await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      if (data.ok) {
+        logMessage(`📲 Telegram photo notification sent successfully!`);
+      } else {
+        logMessage(`⚠️ Telegram sendPhoto error: ${data.description}`);
+      }
+    } else {
+      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: caption,
+          parse_mode: 'HTML'
+        })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        logMessage(`📲 Telegram text notification sent!`);
+      }
+    }
+  } catch (err) {
+    logMessage(`⚠️ Failed to send Telegram notification: ${err.message}`);
+  }
+}
+
 async function attemptBooking(attemptNumber) {
   const config = loadConfig();
   const targetDateISO = resolveTargetDateISO(config.targetDate);
   const targetRoom = config.room || '115';
   const targetSpace = config.space || 'Regular Seating';
+  let bookedRoomLabel = targetRoom;
 
   logMessage(`\n🔄 --- [ATTEMPT ${attemptNumber} of ${MAX_RETRIES}] ---`);
   logMessage(`🏢 Target: "${config.location}" | 📅 Target Date: "${targetDateISO}" (Setting: "${config.targetDate}") | 💺 Space: "${targetSpace}" | 🚪 Room: "${targetRoom}"`);
@@ -189,6 +253,7 @@ async function attemptBooking(attemptNumber) {
       const optionText = await roomTargetOption.textContent();
       if (!classAttr.includes('disabled')) {
         isTargetRoomAvailable = true;
+        bookedRoomLabel = optionText.trim();
       } else {
         logMessage(`⚠️ Preferred Room "${targetRoom}" (${optionText.trim()}) is full / disabled.`);
       }
@@ -208,6 +273,7 @@ async function attemptBooking(attemptNumber) {
         if (await availableOption.isVisible()) {
           const roomLabel = await availableOption.textContent();
           await availableOption.click({ force: true });
+          bookedRoomLabel = roomLabel.trim();
           logMessage(`✅ Auto-Fallback selected: "${roomLabel.trim()}"`);
         } else {
           logMessage(`⚠️ No alternative room with available seats found.`);
@@ -236,13 +302,25 @@ async function attemptBooking(attemptNumber) {
     logMessage(`📸 Confirmation screenshot saved: ${screenshotPath}`);
     logMessage(`✅ SUCCESS! Seat booking completed on attempt ${attemptNumber}! 🎉\n`);
 
+    // Send Telegram Notification with Photo
+    await sendTelegramNotification({
+      success: true,
+      date: targetDateISO,
+      room: bookedRoomLabel,
+      location: config.location,
+      space: targetSpace,
+      screenshotPath
+    });
+
     await browser.close();
     return true;
 
   } catch (error) {
     logMessage(`❌ Attempt ${attemptNumber} encountered error: ${error.message}`);
     const errorScreenshot = path.join(__dirname, `error_attempt_${attemptNumber}_${Date.now()}.png`);
-    await page.screenshot({ path: errorScreenshot }).catch(() => {});
+    if (page) {
+      await page.screenshot({ path: errorScreenshot }).catch(() => {});
+    }
     await browser.close();
     return false;
   }
@@ -267,6 +345,13 @@ async function startBookingWithRetry() {
   }
 
   logMessage(`🚨 All ${MAX_RETRIES} attempts finished. Please check the error screenshots.`);
+  const config = loadConfig();
+  await sendTelegramNotification({
+    success: false,
+    date: resolveTargetDateISO(config.targetDate),
+    location: config.location,
+    error: `All ${MAX_RETRIES} attempts failed.`
+  });
 }
 
 startBookingWithRetry();

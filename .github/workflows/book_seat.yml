@@ -26,6 +26,8 @@ jobs:
     env:
       TZ: 'Asia/Kolkata'
       SESSION_DATA: ${{ secrets.SESSION_DATA }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       TARGET_DATE: ${{ github.event.inputs.targetDate }}
       TARGET_ROOM: ${{ github.event.inputs.room }}
 
