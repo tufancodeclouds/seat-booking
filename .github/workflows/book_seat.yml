@@ -2,10 +2,7 @@ name: Daily Office Seat Booking
 
 on:
   schedule:
-    # Test cron: 13:40 UTC / 13:42 UTC = 07:10 PM / 07:12 PM IST
-    - cron: '40 13 * * *'
-    - cron: '42 13 * * *'
-    # Regular midnight cron: 18:31 UTC = 12:01 AM IST
+    # 18:31 UTC corresponds to 12:01 AM IST (UTC+5:30) every day
     - cron: '31 18 * * *'
   workflow_dispatch:
     inputs:
