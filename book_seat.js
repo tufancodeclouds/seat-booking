@@ -73,12 +73,17 @@ function resolveTargetDateISO(input) {
   return `${yyyy}-${mm}-${dd}`;
 }
 
+const DEFAULT_TG_TOKEN = '8860895243:AAFIZNzNKVPuHYfjF_E--jzoCAFW32D3HT4';
+const DEFAULT_TG_CHAT_ID = '6597139292';
+
 async function sendTelegramNotification({ success, date, room, location, space, screenshotPath, error }) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const token = (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_BOT_TOKEN.trim()) || DEFAULT_TG_TOKEN;
+  const chatId = (process.env.TELEGRAM_CHAT_ID && process.env.TELEGRAM_CHAT_ID.trim()) || DEFAULT_TG_CHAT_ID;
   if (!token || !chatId) {
+    logMessage(`ℹ️ Telegram notification skipped: token or chat ID missing.`);
     return;
   }
+  logMessage(`📲 Sending Telegram notification to chat ID ${chatId}...`);
 
   try {
     let caption;
