@@ -1,0 +1,15 @@
+{
+  "name": "booking",
+  "version": "1.0.0",
+  "description": "Automated 12:01 AM seat booking bot",
+  "main": "book_seat.js",
+  "scripts": {
+    "login": "node login.js",
+    "book": "node book_seat.js",
+    "config": "node set_config.js",
+    "set-date": "node set_date.js"
+  },
+  "dependencies": {
+    "playwright": "^1.63.0"
+  }
+}

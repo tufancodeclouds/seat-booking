@@ -1,0 +1,114 @@
+{
+  "cookies": [
+    {
+      "name": "admin",
+      "value": "0",
+      "domain": ".besimplified.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "sso_fields",
+      "value": "{\"sso_token\":\"4eb686ab8c6e8d6e0de83b0fa8cdccf8\",\"sso_prefix\":\"accounts_auth_production_cache\"}",
+      "domain": ".besimplified.com",
+      "path": "/",
+      "expires": 1820420761,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "remember_me",
+      "value": "31536000",
+      "domain": ".besimplified.com",
+      "path": "/",
+      "expires": 1820420761,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "permission",
+      "value": "{\"accounts\":{\"accounts\":{\"overview\":\"all\"},\"users\":{\"change-password\":\"all\",\"ip-details\":\"all\",\"create-view\":\"all\",\"profile\":\"all\",\"invite-for-app\":\"instance\",\"regenerate-recovery-codes\":\"all\",\"send-verification-otp\":\"all\",\"disable-2fa\":\"all\",\"login-history\":\"owner\",\"get-user\":\"all\",\"generate-authenticator-qr\":\"all\",\"validate-verification-otp\":\"all\",\"organizations\":\"account\",\"activate-authenticator-app\":\"all\",\"get-usernames\":\"all\",\"2fa-set-primary\":\"all\",\"set-password\":\"all\",\"update\":\"all\",\"activate-2fa-sms\":\"all\"},\"sign-in\":{\"switch\":\"all\",\"validate\":\"all\",\"logout\":\"all\"},\"app-registrations\":{\"record-activity\":\"instance\",\"list\":\"instance\",\"mark\":\"all\",\"branding\":\"instance\"},\"subscriptions\":{\"current-subscription-info\":\"all\",\"payment-status\":\"instance\"},\"files\":{\"upload\":\"instance\",\"cancel\":\"owner\",\"start\":\"instance\"},\"organizations\":{\"list\":\"all\",\"view\":\"all\"},\"header\":{\"organization-switcher\":\"all\"},\"feedbacks\":{\"create\":\"all\",\"create-view\":\"all\"},\"menu\":{\"overview\":\"all\"},\"countries\":{\"list\":\"all\"},\"user-permissions\":{\"list\":\"all\"}}}",
+      "domain": ".besimplified.com",
+      "path": "/",
+      "expires": 1820420762,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "hr_identifier",
+      "value": "4eb686ab8c6e8d6e0de83b0fa8cdccf8",
+      "domain": "people.codeclouds.com",
+      "path": "/",
+      "expires": 1820420764,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "active_organization",
+      "value": "63eb0e2946a74aa8023fd1a8",
+      "domain": "people.codeclouds.com",
+      "path": "/",
+      "expires": 1820420765,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "hr_user",
+      "value": "{\"display_name\":\"Tufan Ghosh\",\"tour_status\":\"done\",\"gravatar\":\"v1/media/profile/63eb0e2946a74aa8023fd1a9/63eb0e2946a74aa8023fd1a8/656de217c015a77fec70232c/default?v=1786627649768\"}",
+      "domain": "people.codeclouds.com",
+      "path": "/",
+      "expires": 1820420765,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://people.codeclouds.com",
+      "localStorage": [
+        {
+          "name": "user-calendar-view",
+          "value": "month"
+        },
+        {
+          "name": "hr_user_plan_info_pref_4eb686ab8c6e8d6e0de83b0fa8cdccf8",
+          "value": "false"
+        },
+        {
+          "name": "user_theme",
+          "value": "lapis"
+        },
+        {
+          "name": "favicon",
+          "value": "https://storage.googleapis.com/pypa-hr/production/5/org/favicon_1687246505.png"
+        },
+        {
+          "name": "logo",
+          "value": "https://storage.googleapis.com/pypa-hr/production/5/org/logo_1684128409.png"
+        },
+        {
+          "name": "calendar-view-option",
+          "value": "{\"listView\":false,\"gridView\":false,\"showPast\":false}"
+        }
+      ]
+    },
+    {
+      "origin": "https://accounts.besimplified.com",
+      "localStorage": [
+        {
+          "name": "persist:root",
+          "value": "{\"userDetail\":\"\\\"U2FsdGVkX19FgHYnZh1DcHO5Bl8Xrd/6CrTTi77yJWp39XWUeCWE9tS91xY/6EovWbhYWWt2QqUZGPMcMs/a8B8yExYx9cXPce6gI5jm18O3f7aHLRTIV//cvADh+VphwkNZ4pH0keA7HdTn6q5Ma03+jFCbnRGtaDnQktlmvlt2ZqBO2OVLVAU23BAHlxJRhHVcep8fib4/biihQXgpfkUO5bU0vPAphH7zk4w90spBbW6JqthOgO42GGMMi0ACMDndWP4pbIalsaZwYjE3ciqhykqfsueH1uVA2JrWEo4/T41a3GuJGVn3k9FaUr3hv5NhoN8rAzFb1U8kTdpUmqJrEXx2Y7F6VLYfwehp0O3Yri1NECwYS9UKfv7nur+UDdGalg9TL5xtHaL9LWkxy8mhE1xYie4liugmfETOGZUcGNx0dPUV//vmurpfWxr7oJtF6epsBicAOfG4QwZYl4MCCGF71DUd/NhJlf9WkfsdVhlXT4QBsQK7fm6mJz2MEDjRHN/WgL91uCEnaSPmFvRnCAf3spTF3mZQ19dxkrkPVJLLhUlNIPAqEc/GKtov3p4jI81ptlq9VC+I/AeF4X+pQ3YNpJZh5luaeZi/WvxefND9U9aOfvZatiWV6fRogsgbYOcwtX86oG4VSmKMoL7ALTk94q9gK6C6dHMGTI1d+fEyAEtbGw5fCBlcVa4s5ofaNsUaj2aHyJl8aEfHYg==\\\"\",\"loginDetail\":\"\\\"U2FsdGVkX1/29osOFns0Ucwp3XcU1wJtv9aU6/z8Wq2Am11k/rnzCgjEE81AKQ1AZ79qMQqcMfDJVHmFpe6yjm99nH+jr5QChfzaSYHy4zJqhUPALriKE6bJVCSY1ho8znkfghE58XJtHLBI68epFoeuPFV8+rdy7tbh/5Ld18G37HyU8E7A7a5l+cA43lckvlHGIiygTLhXKyMGg/k5jFqo8BWC17aV35XNjBMSndlvk3L4aU1Pvu/iwP0H18KXez3R1T6DSkSYOULQpqx/OedX34HhTIooNPb3NtTvtqDVUgKugKzDdFWz+VOeOJm8rd0/TosQ7OxKJZB3jGFWbj66KzW5e32E77QzDieOZLRPz/hTe3lzfC0K/9Km+PcO\\\"\",\"organizations\":\"\\\"U2FsdGVkX1834OhTVF8WYuqPAHufu0Gdrb6+oK2uGH1bcJzHXKLJBN8gx3llkuPbn8X20sxItT+KAQp80pVf/t7xDJHOpaYmiyOHSQbKfV/K88pN/dq7lTVtIpnJ0bDuUuZIfEO4B+x5kHOhdS5poTu4ADQXupbuUPmrZ3JvEtJ9JqM4Av3WO+w0vIG1otgHBPlwndGfeZkELMGKVVy9yva7NoRHD0GD+KqCTXE/XHFPB5CrlbPcZ9wYh4IV4b4vkZZibs58Luv+ElziukmDhO3dpCxLFCfJECDeouwKW6Ew4sVzd5NVw03JlGetp6Vy\\\"\",\"rememberMe\":\"\\\"U2FsdGVkX1+n1w05Ka48uDHoyaauwAdTC1CSYMKPFRo=\\\"\",\"userTab\":\"\\\"U2FsdGVkX18xrrPzTNE/ZbS2FaMOIWjyZVINYroyJfk=\\\"\",\"phone\":\"\\\"U2FsdGVkX1/sjbd//GCrMd5ODkCzMsA/D/dtrGjh7SVEE75mNCftQiDNi6sX4Qkf\\\"\",\"authWays\":\"\\\"U2FsdGVkX18RUPtOgycj67cInyXUwW0m3OV59i2WYgxVvfnSFuBP9KJ/tGEMGYwK\\\"\",\"timer\":\"\\\"U2FsdGVkX196CpO5lcmgu2BQ/I4iqmfveuAw22eqoLazpZ1wwHVBHQ39ygqEzlVu\\\"\",\"loginClient\":\"\\\"U2FsdGVkX18I6+Vz6j7+GPKxA+kuE2m9EYzO+4Ec75Mf6jMo2qNhKQZGTFzd6h28/+ADsqKMr5B3VJ2K637CV6HHg2Z+T72XwzTzG8uDMJ0JJlYzf/Z0nNiqu28+2j0m\\\"\",\"layoutHide\":\"\\\"U2FsdGVkX1/zVNrRQeI3p/3u3cVPvs57qK7m6mmW+Wc=\\\"\",\"impersonated\":\"\\\"U2FsdGVkX18fpB8NJAdeefFDAWeW57xMLrG8QsWjcTYTUD2v4P5wzZdg00TpZoMEuSSbyLusXKp9Dz8jB4Apgy3obZlPXPoI9kzwefDt7wmgZYIuvCQ7zU556C4wlYRsPsNQu3cSRkd6gVrpSxtRt79RNfMEfrimBSh/s/4vejhTocy/W+OAqZkBBfUgKS9GbRnkuwHLmLAyBLOUpaVm6CZN9TFBQYAY7BhkPZslunYPAWv1FTcV81wRuao1TwY6rYqhFYNtoiZBG1DQN6dczWyarEke0m4J72V3d9F6g1E=\\\"\",\"user\":\"\\\"U2FsdGVkX18hRfdiwsdJvBLF9ZDVHREpiaaFAkUdGT6Ct3T4znraF6Zepk6X18+0/XLxDJSrP2979IHbRLnG3m8dQ/g7vrpPmrx3yvki6s0=\\\"\",\"signupDetailSlice\":\"\\\"U2FsdGVkX19r1B4ZgMyhYPH4kWRWBasTtFjWFYOLQm0jhY3ILtF7MRtHKgBzk4TAKX5E9MMZuo6N1t7pZBsCu3M5b7X4O4d9Hpiw74RcTfIaXIKV+i+3H0zbWBL1QCimUm3DtrtilnNfAmEWZ8APjopbx/zJi6mhkx8gaztoDJsib8kpqdf5N4xcRvDqCFKx3HDcdMe7lyWhZ6DWelALyq6/C/U2RVrLPHJYGAnl58xv7geaBDIxyZgdHdgACQKTMJWVgyyH9MNpL105A1zSKIoWJXQRlHC7fzw2mHZ7Sp3OZMOKJJyXzmjk57Fm5IhGXuFvZbg2RKzGIUnCaLXde3L1sEU6wGUMBqtTDPMQvTk=\\\"\",\"changePlanPayload\":\"\\\"U2FsdGVkX1+qR0y/xXD4whaW1xppK6u/hfj4lIqIpVO0urKQr3Holht9gXwT6lCKVTUqCcrCpUZLcier0pb13XN9H2IPyXQNCGDuR5Vn74RnDSxegJECd6OGcU5nljTF84FNTuCdnhlVmsrYFv1jDmYM9R4T28a/Xc0h2+sXDRA+VcHT1Qe1E8CZABCT/lwQPSdvCSuvCeGlf5fNGRON08Le6O1m4Ok5hI/jaBHtynGgDB/BtMGaN1LFkzBJ89e2\\\"\",\"redirect\":\"\\\"U2FsdGVkX19C9wACoFwkEI3Lkngs5vZZu9GE0ciExc3j+wriwL2ovNyI7ES1/6l4gXf09JRlb7HDZXYMoUxiFQ==\\\"\",\"appReg\":\"\\\"U2FsdGVkX18IkzW2+wKC+gOG3sjFxSiyzw1U8Ntit3/flwJpadFTlcRmdjiip5LuMnXXjM+gzzN54KI6+jmKKGDWzGy6Vc/2Gm+a4HChKuikHceC2Seawf68p72L57VS/Li2fC76RmtHRgllZdXOMaLZXs7dN/K6NIgapcQBJXa6rEPdP7Y5EStBqaDOSBfchjxqplpXzVeQb2gkBDEwhf9GZ0qkEWOzP8Wp2oF1YyCfB6l1Vgou1wewlvs2BMM+BlSczqhr3rbSWB8Rr/SvasknwzER5YHKVhq2oxbYQXoTshBigR9voo44G+bB30cOnzfvK5GfQPm5BSl+LScyQRpgk0dAuuepyMHvfgVCXD5iVJ7sxCRJyZIjmylOr9KLmV41UlYkyWNb0RPUoSfWdkA/BOEfjhiAJvEjdSd8o/F2dRjZJP/cJ0Rj1ljCTKbtf3t8eaMj7GAr3PJrh6FsJDgPVeWjbqb8wbpDES3h5eucB2dfKNU/EHkmu4nJ24iKBjUWfL4oX8aUphN5ii3Sd4NAncsxPEfN5kl6Bw3/wdpbK977sviCQG11JYavirofPNjv4QUmxvo/xBPRvWi8t2+R3tc1cDxbSlm9VCgVv3hxSS6KKRVwJX2NfrneV4UOC3f3G/CqQd5UJxe86QLJtCay+6shxHMyn+FNldH6jqcDi/nhrtUzCWsqlM7uFjsRaI5gLZ9gIeHNF8RYHch9olFhPaDtFeYdB1iX/yNT/BjAF9K9Q0OstdzfZFN/01WOraaQVoRfFp7O3ZegTCos1eYjpUqhmX7K7zxs4Zua4DSqg6UANsSaM9iXOmTFNH12ptDiKwA80W6/0eq2kuHH2CmB4e7JBDwUzqfZb3nf20UnJYFvcL5VhtbRsatyl5EXI9yFvvSw6EHGAFaJrT9sG6YVBdyvRqMK8oDcUICoV+Va/ZIVM9p8wNcM0cWndSmm3etUTCb53Bku0GFVmPG8J5xs7qeemTcSjcIDLgWoGNncgcHHg3fkpxTYCn12RUD+j53s8u9RQKeB5KEfcOgO4NmfHkMOJfXgb05TOt2T1WMt6kvTgOcaVicmOEZhOm0TVyXZsQEFzgJNBfJhUHm+ptrrGSxI9d8K9g5zL079MprUOmytiow6BHgpFXtLxZ9xXr2EFb0tiGeJ9Ex2csqmUz4X3KdbuIVozrW3d6Mx3f/hp42vhKQwa49zVkl9FUSXbD66ximP0xL82PoO8t0/UamtBeGNNL8/QCbghIEbvTo34YXIcm0vzorC0h2XpknEqQa+AchjEvOknw5oFQj1egtl9UwX9F3GzwYSz4reK1bRbxq2bX0vYOe2G2+yc90wNuTez/+4qRU/AG1JXVCJZl9oBDgd2U65ph/nPMHDf8RoWlezE5jVCA6OqMX1xOtq1WjCzevXKiJsKVrfMom+1MlqJU0QaXfMPkWAxh4rRnEQExHNageLXX9etrWxlEp8OFVw277iKEBFjAhvyVewtnJZhFzk8exnmqX072lHjMvEvt0cLXTs/0O/46eU8/KF871rPcU89/R4Fv9+jytPLw==\\\"\",\"userTheme\":\"\\\"U2FsdGVkX19cVVPCNYj2Bxh8RBEd8OT562ihCAb5bLQjKoDUSdu03eVI0hHi7n6+\\\"\",\"_persist\":\"\\\"U2FsdGVkX1/tI9WGUa7kZqX+3ClfcXhpSmNpR70fryT0GAXr7pvTifdhaxU2+CRPM3DAMrFx53vrxYSh8ktsoQ==\\\"\"}"
+        }
+      ]
+    }
+  ]
+}

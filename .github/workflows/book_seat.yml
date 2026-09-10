@@ -1,0 +1,46 @@
+name: Daily Office Seat Booking
+
+on:
+  schedule:
+    # 18:31 UTC corresponds to 12:01 AM IST (UTC+5:30) every day
+    - cron: '31 18 * * *'
+  workflow_dispatch:
+    # Allows manual trigger anytime from GitHub Actions tab
+
+jobs:
+  book-seat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      TZ: 'Asia/Kolkata'
+      SESSION_DATA: ${{ secrets.SESSION_DATA }}
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🎭 Install Playwright Chromium & System Dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: 🚀 Run Seat Booking Bot
+        run: node book_seat.js
+
+      - name: 📸 Upload Proof Screenshots & Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: booking-results-${{ github.run_id }}
+          path: |
+            *.png
+            booking_history.log
+          retention-days: 7
