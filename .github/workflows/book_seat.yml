@@ -1,9 +1,8 @@
 name: Daily Office Seat Booking
 
 on:
-  schedule:
-    # 18:31 UTC corresponds to 12:01 AM IST (UTC+5:30) every day
-    - cron: '31 18 * * *'
+  repository_dispatch:
+    types: [trigger-booking]
   workflow_dispatch:
     inputs:
       targetDate:
@@ -14,6 +13,9 @@ on:
         description: 'Room Number (e.g. 115 - leave empty for default)'
         required: false
         default: ''
+  schedule:
+    # 18:31 UTC corresponds to 12:01 AM IST (UTC+5:30) every day
+    - cron: '31 18 * * *'
 
 jobs:
   book-seat:
@@ -25,8 +27,8 @@ jobs:
       SESSION_DATA: ${{ secrets.SESSION_DATA }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      TARGET_DATE: ${{ github.event.inputs.targetDate }}
-      TARGET_ROOM: ${{ github.event.inputs.room }}
+      TARGET_DATE: ${{ github.event.inputs.targetDate || github.event.client_payload.targetDate }}
+      TARGET_ROOM: ${{ github.event.inputs.room || github.event.client_payload.room }}
 
     steps:
       - name: 📥 Checkout Repository
